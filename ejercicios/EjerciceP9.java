@@ -39,6 +39,7 @@ public class EjerciceP9 {
         WebDriver driver = new ChromeDriver();
 
         driver.get("http://www.salesforce.com");
+        //lista con todas las h1 del sitio
         List<WebElement> listH1 = driver.findElements(By.tagName("h1"));
         //el system de abajo es apayudar a leer bien lo que pasa en el test
         System.out.println("se mostraran los h1");
@@ -60,11 +61,6 @@ public class EjerciceP9 {
     @Test
     //abrir google
     public void tercerTest(){
-        inicializarDriver("http://www.google.com");
-
-    }
-    @Test
-    public void fourTest(){
         inicializarDriver("http://www.google.com");
 
     }
@@ -93,17 +89,25 @@ public class EjerciceP9 {
         for(int i = 0 ; i < 3; i++){
             System.out.println(" H2: " + listh2.get(i));
         }
+        List<WebElement> listh3 = driver.findElements(By.tagName("h3"));
+        List<WebElement> listParagraph3 = driver.findElements(By.tagName("p"));
+        System.out.println( " amount of h3s is " + listh3.size());
+        System.out.println( " amount of paragraph3 is " + listParagraph3.size());
+
+        for(int i = 0 ; i < 3; i++) {
+            System.out.println(" H3: " + listh3.get(i));
+        }
+
+
+        System.out.println(" hiperlink of the page *******");
         //imprimir todos los hipervinculos de esta pagina(a)
         List<WebElement> hyperlink = driver.findElements(By.tagName("a"));
         for (WebElement link : hyperlink ){
             System.out.println("link  " + link.getText());
-
         }
-
-
+        System.out.println(" hiperlink of the page *******");
         //comando para maximizar la pantalla god
         driver.manage().window().fullscreen();
         driver.close();
-
     }
 }
