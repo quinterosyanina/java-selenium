@@ -106,8 +106,28 @@ public class EjerciceP9 {
             System.out.println("link  " + link.getText());
         }
         System.out.println(" hiperlink of the page *******");
+
+        //comando para saber las dimenciones del browser
+        int altura = driver.manage().window().getSize().getHeight();
+        int ancho = driver.manage().window().getSize().getWidth();
+        System.out.println(" la altura es " + altura);
+        System.out.println(" la ancho es " + ancho);
+
         //comando para maximizar la pantalla god
         driver.manage().window().fullscreen();
+        System.out.println(" maximizando... ");
+
+        //pido la altura denuevo porque puse fullscreen
+        int altura2 = driver.manage().window().getSize().getHeight();
+        int ancho2 = driver.manage().window().getSize().getWidth();
+        System.out.println(" la altura es " + altura);
+        System.out.println(" la ancho es " + ancho);
+
+        //llamar a listas
+        List<WebElement> List = driver.findElements(By.tagName("li"));
+        for (WebElement e : List){
+            System.out.println(" List " + e.getText());
+        }
         driver.close();
     }
 }
